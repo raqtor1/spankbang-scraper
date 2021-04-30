@@ -14,7 +14,12 @@ soup = BeautifulSoup(r, 'lxml')
 # results may just be something around 8 - 15.
 for item in soup.find_all('div', class_='video-item')[0:limit]:
 
-    full_video = item.find("a", class_='thumb')['href']
+    try:
+        full_video = item.find("a", class_='thumb')['href']
+    except:
+        print(f'No videos found for: {query}')
+        return
+
     # sometimes /category/ shows up
     # which isn't a video link.
     if "/category/" in full_video:
