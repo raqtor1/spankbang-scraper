@@ -18,7 +18,6 @@ for item in soup.find_all('div', class_='video-item')[0:limit]:
         full_video = item.find("a", class_='thumb')['href']
     except:
         print(f'No videos found for: {query}')
-        return
 
     # sometimes /category/ shows up
     # which isn't a video link.
@@ -38,12 +37,12 @@ for item in soup.find_all('div', class_='video-item')[0:limit]:
     except:
         prev_vid = "Not Found"
         image = "Not Found"
-
-print(
-    f"""
-    Title: {title}
-    Thumbnail: {image}
-    Preview Video: {prev_vid}
-    Full Video: https://spankbang.com/watch{full_video}
-    """
-)
+    
+    print(
+        f"""
+        Title: {title}
+        Thumbnail: {image}
+        Preview Video: {prev_vid}
+        Full Video: https://spankbang.com/watch{full_video}
+        """
+    )
